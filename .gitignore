@@ -1,0 +1,7 @@
+.idea
+*.iml
+.DS_Store
+*.zip
+*.log
+bin
+pkg
