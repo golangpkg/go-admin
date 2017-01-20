@@ -10,3 +10,8 @@ http://blog.csdn.net/freewebsys
 bee new go-admin
 配置
 在使用idea的时候，要把src设置成源代码目录。
+
+## 3，页面的构建
+http://v3.bootcss.com/
+https://jquery.com/download/
+

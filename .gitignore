@@ -3,6 +3,7 @@
 .DS_Store
 *.zip
 *.log
+doc
 bin
 pkg
 src/go-admin/go-admin
