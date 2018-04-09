@@ -1,4 +1,4 @@
-package main
+package go_admin
 
 import (
 	_ "go-admin/routers"

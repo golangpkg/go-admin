@@ -15,3 +15,6 @@ bee new go-admin
 http://v3.bootcss.com/
 https://jquery.com/download/
 
+
+## 4，调整项目目录
+

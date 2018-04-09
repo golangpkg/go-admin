@@ -1,7 +1,7 @@
 package routers
 
 import (
-	"go-admin/controllers"
+	"github.com/freewebsys/go-admin/controllers"
 	"github.com/astaxie/beego"
 )
 
