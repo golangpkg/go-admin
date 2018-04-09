@@ -20,7 +20,9 @@ https://jquery.com/download/
 https://blog.csdn.net/huwh_/article/details/77169858
 
 govendor命令使用
-go get -u -v github.com/kardianos/govendor
-go install github.com/kardianos/govendor
-govendor init
-govendor add +e
+```
+    go get -u -v github.com/kardianos/govendor
+    go install github.com/kardianos/govendor
+    govendor init
+    govendor add +e
+```
