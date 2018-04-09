@@ -6,4 +6,4 @@
 doc
 bin
 pkg
-src/go-admin/go-admin
+go-admin

@@ -4,17 +4,23 @@
 如果有代码能够有启发帮助，我就很高兴了。
 我的博客地址：
 http://blog.csdn.net/freewebsys
+关于项目描述
+https://blog.csdn.net/freewebsys/article/details/68955060
 
 ## 2，创建工程的过程
 创建项目
 bee new go-admin
-配置
-在使用idea的时候，要把src设置成源代码目录。
 
 ## 3，页面的构建
 http://v3.bootcss.com/
 https://jquery.com/download/
 
-
 ## 4，调整项目目录
 
+https://blog.csdn.net/huwh_/article/details/77169858
+
+govendor命令使用
+go get -u -v github.com/kardianos/govendor
+go install github.com/kardianos/govendor
+govendor init
+govendor add +e
