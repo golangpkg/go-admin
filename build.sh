@@ -5,8 +5,8 @@ git pull
 BUILD_DATE=`date +%Y-%m-%d:%H:%M:%S`
 echo `date +%Y-%m-%d:%H:%M:%S` > version
 
-base_url=
-docker_url=freewebsys/go-admin
+base_url=docker.io
+docker_url=golangpkg/go-admin:latest
 
 
 #docker run --rm -v `pwd`:/go/src/github.com/freewebsys/go-admin -v `pwd`:/go -i golang:stretch \
@@ -14,8 +14,9 @@ docker_url=freewebsys/go-admin
 
 docker build -t ${docker_url} .
 
-echo "docker login -u  ${base_url}"
-#docker push ${docker_url}
+echo "docker login -u  "
+ehco docker login -u golangpkg ${base_url}
+ehco docker push ${base_url}/${docker_url}
 
 echo "build & push finish ."
 echo "##############  $BUILD_DATE  ##############"
