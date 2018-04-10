@@ -7,3 +7,5 @@ doc
 bin
 pkg
 go-admin
+main
+go-admin.db

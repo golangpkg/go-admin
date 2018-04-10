@@ -1,27 +1,49 @@
 <!DOCTYPE html>
-<html lang="zh-cn">
+<html lang="en">
 <head>
-    <title>golang admin</title>
     {{template "meta.html"}}
 </head>
-<body>
-<a class="sr-only sr-only-focusable" href="#content">Skip to main content</a>
+<body class="no-skin">
+{{template "header.html" .}}
 
-{{template "header.html"}}
 
-<div class="container">
-    <div class="row">
+<div class="main-container ace-save-state" id="main-container">
+    <script type="text/javascript">
+        try{ace.settings.loadState('main-container')}catch(e){}
+    </script>
 
-        {{template "left_menu.html"}}
+    {{template "menu.html" .}}
 
-        <div class="col-md-9" role="main">
-            <div>
-                <h3>欢迎使用golang admin demo 系统！</h3>
+
+    <div class="main-content">
+        <div class="main-content-inner">
+            <div class="breadcrumbs ace-save-state" id="breadcrumbs">
+                <ul class="breadcrumb">
+                    <li>
+                        <i class="ace-icon fa fa-home home-icon"></i>
+                        <a href="#">Home</a>
+                    </li>
+                    <li class="active">Dashboard</li>
+                </ul><!-- /.breadcrumb -->
             </div>
 
+            <div class="page-content">
+
+                <div class="page-header">
+                    <h1>
+                        Dashboard
+                        <small>
+                            <i class="ace-icon fa fa-angle-double-right"></i>
+                            overview &amp; stats
+                        </small>
+                    </h1>
+                </div><!-- /.page-header -->
+
+            </div><!-- /.page-content -->
         </div>
+    </div><!-- /.main-content -->
 
-    </div>
-</div>
+</div><!-- /.main-container -->
 
-{{template "footer.html"}}
+</body>
+</html>

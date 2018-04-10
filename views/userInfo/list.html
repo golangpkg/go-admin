@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html>
+<head>
+    {{template "meta.html"}}
+</head>
+<body class="no-skin">
+
+{{template "header.html" .}}
+
+<div class="main-container ace-save-state" id="main-container">
+
+    {{template "menu.html" .}}
+
+    <div class="main-content">
+        <div class="main-content-inner">
+
+            <div class="breadcrumbs ace-save-state" id="breadcrumbs">
+                <ul class="breadcrumb">
+                    <li>
+                        <i class="ace-icon fa fa-home home-icon"></i>
+                        <a href="#">首页</a>
+                    </li>
+                    <li class="active">用户管理</li>
+                </ul><!-- /.breadcrumb -->
+            </div>
+
+            <div class="page-content">
+                <div class="page-header">
+                    <h1>
+                        用户列表
+                    </h1>
+                </div>
+
+                <div class="row">
+                    <div class="col-xs-12">
+                        <div class="col-sm-1">
+                                <button onclick="showEditWindow(0);" role="button" class="btn btn-sm btn-primary" data-toggle="modal">
+                                    <i class="ace-icon fa fa-plus"></i>
+                                    增加
+                                </button>
+                        </div><!-- /.col -->
+                        <div class="col-sm-3">
+                            <form action="/admin/userInfo/list" id="search-from" method="get">
+                                
+                                <input type="text" name="Name" placeholder="用户名" class="col-xs-10 col-sm-3" value="{{.Name}}">
+                                 <button onclick="$('#search-from').submit();" role="button" class="btn btn-sm btn-primary" data-toggle="modal">
+                                    <i class="ace-icon fa fa-search"></i>
+                                    查询
+                                </button>
+                            </form>
+                        </div><!-- /.col -->
+
+                        <p class="row">&nbsp;</p>
+                        <div class="row">
+                            <div class="col-xs-12">
+                                <table id="simple-table" class="table  table-bordered table-hover">
+                                    <tr>
+                                        <th>Id</th>
+                                        <th>姓名</th>
+                                        <th>生日</th>
+                                        <th>性别</th>
+                                        <th>Email</th>
+                                        <th>电话</th>
+                                        <th>状态</th>
+                                        <th>创建时间</th>
+                                        <th>更新时间</th>
+                                        <th>操作</th>
+                                    </tr>
+                                    {{range .List}}
+                                    <tr>
+                                        
+                                        <td>{{.Id}}</td>
+                                        <td>{{.Name}}</td>
+                                        <td>{{.BirthDate}}</td>
+                                        <td>{{.Gender}}</td>
+                                        <td>{{.Email}}</td>
+                                        <td>{{.Phone}}</td>
+                                        <td>{{.Status}}</td>
+                                        <td>{{date .CreateTime "2006-01-02 15:04:05"}}</td>
+                                        <td>{{date .UpdateTime "2006-01-02 15:04:05"}}</td>
+
+                                        <td>
+                                            <div class="hidden-sm hidden-xs btn-group">
+                                                <button class="btn btn-xs btn-info" onclick="showEditWindow('{{.Id}}');">
+                                                    <i class="ace-icon fa fa-pencil bigger-120"></i>
+                                                </button>
+                                                <button class="btn btn-xs btn-danger" onclick="deleteConfirm('{{.Id}}');">
+                                                    <i class="ace-icon fa fa-trash-o bigger-120"></i>
+                                                </button>
+                                            </div>
+                                        </td>
+                                    </tr>
+                                    {{end}}
+                                </table>
+                            </div><!-- /.span -->
+                        </div><!-- /.row -->
+                        <!-- PAGE CONTENT BEGINS -->
+
+                    </div><!-- /.row -->
+                </div><!-- /.page-content -->
+            </div>
+
+        </div>
+    </div><!-- /.main-content -->
+
+
+    <!-- 编辑窗口 -->
+    <div id="my-modal" class="modal fade" tabindex="-1"></div>
+
+    <script type="text/javascript">
+
+        jQuery(function($) {
+            //初始化窗口。
+            $('.modal.aside').ace_aside();
+            $('#aside-inside-modal').addClass('aside').ace_aside({container: ""});
+            $(document).one('ajaxloadstart.page', function(e) {
+                $('.modal.aside').remove();
+                $(window).off('.aside')
+            });
+            bootbox.setLocale("zh_CN");
+        })
+        //每次动态加载
+        function showEditWindow(Id) {
+            $('#my-modal').context = $("#my-modal").load('/admin/userInfo/edit?Id=' + Id);
+            $('#my-modal').modal('show');
+        }
+
+        function deleteConfirm(Id){
+            bootbox.confirm("确认删除？",
+                function(result) {
+                    if(result) {
+                        $.post("/admin/userInfo/delete", {"Id":Id},
+                            function(data){window.location.reload();}
+                        );
+                    }
+            });
+        }
+
+
+    </script>
+</div><!-- /.main-container -->
+
+</body>
+</html>

@@ -1,0 +1,125 @@
+<div class="modal-dialog">
+    <div class="modal-content">
+        <div class="modal-header">
+            <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+            <h3 class="smaller lighter blue no-margin">用户管理</h3>
+        </div>
+
+        <div class="modal-body">
+            <form class="form-horizontal" id="saveForm" role="form" action="/admin/userInfo/save" method="post">
+                <input type="hidden" id="Id" name="Id" value="{{.UserInfo.Id}}"/>
+                <input type="hidden" id="Password" name="Password" value="{{.UserInfo.Password}}"/>
+                <input type="hidden" id="Status" name="Status" value="{{.UserInfo.Status}}"/>
+
+                <div class="form-group">
+                    <label class="col-sm-3 control-label no-padding-right" for="name">登录名</label>
+                    <div class="col-sm-9">
+                        <input type="text" id="UserName" name="UserName" placeholder="登录名" class="col-xs-10 col-sm-5"
+                               value="{{.UserInfo.UserName}}"/>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="col-sm-3 control-label no-padding-right" for="name">用户名</label>
+                    <div class="col-sm-9">
+                        <input type="text" id="Name" name="Name" placeholder="用户名" class="col-xs-10 col-sm-5"
+                               value="{{.UserInfo.Name}}"/>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="col-sm-3 control-label no-padding-right" for="name">生日</label>
+                    <div class="col-sm-9">
+                        <input type="text" id="BirthDate" name="BirthDate" placeholder="生日" class="col-xs-10 col-sm-5"
+                               value="{{.UserInfo.BirthDate}}"/>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="col-sm-3 control-label no-padding-right" for="name">性别</label>
+                    <div class="col-sm-9">
+
+                        <input class="ace ace-checkbox-2" type="radio" name="Gender"
+                               {{if eq .UserInfo.Gender 1 }}checked{{end}} value="1">
+                        <span class="lbl">男</span>
+
+                        <input class="ace ace-checkbox-2" type="radio" name="Gender"
+                               {{if eq .UserInfo.Gender 0 }}checked{{end}} value="0">
+                        <span class="lbl">女</span>
+
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="col-sm-3 control-label no-padding-right" for="name">Email</label>
+                    <div class="col-sm-9">
+                        <input type="text" id="Email" name="Email" placeholder="Email" class="col-xs-10 col-sm-5"
+                               value="{{.UserInfo.Email}}"/>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="col-sm-3 control-label no-padding-right" for="name">电话</label>
+                    <div class="col-sm-9">
+                        <input type="text" id="Phone" name="Phone" placeholder="电话" class="col-xs-10 col-sm-5"
+                               value="{{.UserInfo.Phone}}"/>
+                    </div>
+                </div>
+                <div class="modal-footer" style="background-color: white">
+                    <button class="btn btn-sm btn-primary" type="button" onclick="return save();">
+                        <i class="ace-icon fa fa-check"></i>
+                        保存
+                    </button>
+                    <button class="btn btn-sm btn-danger pull-right" data-dismiss="modal">
+                        <i class="ace-icon fa fa-times"></i>
+                        关闭
+                    </button>
+                </div>
+            </form>
+        </div>
+    </div><!-- /.modal-content -->
+</div><!-- /.modal-dialog -->
+
+<script type="text/javascript">
+
+    jQuery(function ($) {
+        $('#saveForm').validate({
+            errorElement: 'div',
+            errorClass: 'help-block',
+            focusInvalid: false,
+            ignore: "",
+            rules: {
+                UserName: {
+                    required: true,
+                },
+                Name: {
+                    required: true,
+                },
+                BirthDate: {
+                    required: true,
+                },
+                Gender: {
+                    required: true,
+                },
+                Email: {
+                    required: true,
+                },
+                Phone: {
+                    required: true,
+                }
+            },
+            highlight: function (e) {
+                $(e).closest('.form-group').removeClass('has-info').addClass('has-error');
+            },
+            success: function (e) {
+                $(e).closest('.form-group').removeClass('has-error');//.addClass('has-info');
+                $(e).remove();
+            }
+        });
+    });
+    //保存，之前进行校验
+    function save() {
+        if ($('#saveForm').valid()) {
+            $.post("/admin/userInfo/save", $("#saveForm").serialize(),
+                function (data) {
+                    window.location.reload();
+                });
+        }
+
+    }
+</script>
