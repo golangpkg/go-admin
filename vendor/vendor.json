@@ -39,6 +39,12 @@
 			"revisionTime": "2017-12-18T11:18:59Z"
 		},
 		{
+			"checksumSHA1": "MoE8R3ctm+nYy6PL5BNqelLtN04=",
+			"path": "github.com/astaxie/beego/orm",
+			"revision": "f16688817aa428d10361394015b40d096b680542",
+			"revisionTime": "2017-12-18T11:18:59Z"
+		},
+		{
 			"checksumSHA1": "EDaMYv6yHO6Xu9J8loeGIUOvGoE=",
 			"path": "github.com/astaxie/beego/session",
 			"revision": "f16688817aa428d10361394015b40d096b680542",
@@ -61,6 +67,12 @@
 			"path": "github.com/jtolds/gls",
 			"revision": "77f18212c9c7edc9bd6a33d383a7b545ce62f064",
 			"revisionTime": "2017-05-03T22:40:06Z"
+		},
+		{
+			"checksumSHA1": "fM5Ysl+nlW/48x2boH2QZh08q8o=",
+			"path": "github.com/mattn/go-sqlite3",
+			"revision": "eac1dfa2a61ebccaa117538a5bb12044f6700cd0",
+			"revisionTime": "2017-03-05T14:02:06Z"
 		},
 		{
 			"checksumSHA1": "wVmkBavCZSwHYTDGxa1xOD3RKe0=",
@@ -97,6 +109,12 @@
 			"path": "github.com/smartystreets/goconvey/convey/reporting",
 			"revision": "ef6db91d284a0e7badaa1f0c404c30aa7dee3aed",
 			"revisionTime": "2018-02-22T19:45:00Z"
+		},
+		{
+			"checksumSHA1": "Y+HGqEkYM15ir+J93MEaHdyFy0c=",
+			"path": "golang.org/x/net/context",
+			"revision": "10c134ea0df15f7e34d789338c7a2d76cc7a3ab9",
+			"revisionTime": "2017-02-23T22:05:28Z"
 		}
 	],
 	"rootPath": "github.com/freewebsys/go-admin"
