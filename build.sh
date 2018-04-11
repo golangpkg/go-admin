@@ -9,14 +9,14 @@ base_url=docker.io
 docker_url=golangpkg/go-admin:latest
 
 
-#docker run --rm -v `pwd`:/go/src/github.com/golangpkg/go-admin -v `pwd`:/go -i golang:stretch \
-#    /go/src/github.com/golangpkg/go-admin/install.sh
+docker run --rm -v `pwd`:/go/src/github.com/golangpkg/go-admin -v `pwd`:/go -i golang:stretch \
+    /go/src/github.com/golangpkg/go-admin/install.sh
 
 docker build -t ${docker_url} .
 
 echo "docker login -u  "
-ehco docker login -u golangpkg ${base_url}
-ehco docker push ${base_url}/${docker_url}
+echo docker login -u golangpkg ${base_url}
+echo docker push ${base_url}/${docker_url}
 
 echo "build & push finish ."
 echo "##############  $BUILD_DATE  ##############"
