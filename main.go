@@ -1,7 +1,7 @@
 package main
 
 import (
-	_ "github.com/freewebsys/go-admin/routers"
+	_ "github.com/golangpkg/go-admin/routers"
 	"github.com/astaxie/beego"
 	_ "github.com/mattn/go-sqlite3"
 	"github.com/astaxie/beego/orm"

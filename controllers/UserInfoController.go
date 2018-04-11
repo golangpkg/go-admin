@@ -3,7 +3,7 @@ package controllers
 import (
 	"github.com/astaxie/beego/logs"
 	"github.com/astaxie/beego"
-	"github.com/freewebsys/go-admin/models"
+	"github.com/golangpkg/go-admin/models"
 )
 
 type UserInfoController struct {

@@ -10,7 +10,7 @@ apt-get update && apt-get install -y libsqlite3-dev
 
 env GOOS=linux GOARCH=amd64 CGO_ENABLED=1
 
-cd /go/src/github.com/freewebsys/go-admin
+cd /go/src/github.com/golangpkg/go-admin
 rm -f go-admin
 go build -ldflags "-linkmode external -extldflags -static" -o go-admin main.go
 
